@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monthly Calendar</title>
+    <link th:href="@{https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/list.css">
+
 </head>
+
 <body>
+    <div th:insert="~{header :: header}"></div>
     <div class="calendar-container">
         <div class="calendar-header">
             <button class="month-nav-btn" id="prev-month">&#8592;</button>
@@ -33,6 +39,9 @@
             <div id="modal-content" class="modal-content"></div>
         </div>
     </div>
-    <script src="/js/list.js"></script>
+    <script src="/js/list.js">
+    </script>
+    <script src="/js/header.js"></script>
 </body>
+
 </html>

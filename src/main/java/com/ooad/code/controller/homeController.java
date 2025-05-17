@@ -32,4 +32,8 @@ public class homeController {
     public String conflict() {
         return "conflict";
     }
+    @RequestMapping("/header")
+    public String header() {
+        return "header";
+    }
 }

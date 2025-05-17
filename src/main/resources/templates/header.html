@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link th:href="@{https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css}" rel="stylesheet">
+    <link th:href="@{/css/header.css}" rel="stylesheet">
+</head>
+<body>
+    <div th:fragment="header" class="w-header">
+        <div class="header">
+            <div class="header-left">
+                <div class="menu" aria-label="Toggle navigation">
+                    <i class='bx bx-menu'></i>
+                </div>
+                <div class="dropdown-content menu-dropdown">
+                    <ul class="dropdown-menu">
+                        <li><a th:href="@{/home}">Trang chủ</a></li>
+                        <li><a th:href="@{/calendar}">Lịch của tôi</a></li>
+                        <li><a th:href="@{/groups}">Nhóm</a></li>
+                        <li><a th:href="@{/logout}">Đăng xuất</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="notification" aria-label="Toggle notifications">
+                    <i class='bx bx-bell'></i>
+                    <div class="dropdown-content notification-dropdown">
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Thông báo 1</a></li>
+                            <li><a href="#">Thông báo 2</a></li>
+                            <li><a href="#">Xem tất cả</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="profile" aria-label="Toggle profile options">
+                    <i class='bx bx-user'></i>
+                    <span class="user-name">Shiro</span>
+                    <div class="dropdown-content profile-dropdown">
+                        <ul class="dropdown-menu">
+                            <li><a th:href="@{/profile}">Hồ sơ</a></li>
+                            <li><a th:href="@{/settings}">Cài đặt</a></li>
+                            <li><a th:href="@{/logout}">Đăng xuất</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
