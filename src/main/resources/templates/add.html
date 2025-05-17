@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Appointment</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+    <div class="add-box box">
+        <h2 class="add-title title">Add Appointment</h2>
+        <form action="/list" class="add-form form">
+            <div class="name-appointment w-inp">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="name" required>
+            </div>
+
+            <div class="location w-inp">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location">
+            </div>
+
+            <div class="date-time">
+                <div class="start">
+                    <label for="startDateTime">Start</label>
+                    <input type="datetime-local" id="startDateTime" name="startDateTime" required>
+                </div>
+                <div class="end">
+                    <label for="endDateTime">End</label>
+                    <input type="datetime-local" id="endDateTime" name="endDateTime" required>
+                </div>
+            </div>
+
+            <div class="reminder">
+                <label for="reminder">Reminder</label>
+                <select id="reminder" name="reminder" class="reminder-select">
+                    <option value="none">None</option>
+                    <option value="5">5 minutes before</option>
+                    <option value="10">10 minutes before</option>
+                    <option value="30">30 minutes before</option>
+                    <option value="60">1 hour before</option>
+                </select>
+            </div>
+
+            <div class="add-btn">
+                <button type="button" class="btn-cancel" onclick="window.history.back()">Cancel</button>
+                <button type="submit" class="btn-add">Add</button>
+            </div>
+        </form>
+        <p id="error-message" style="color:#d32f2f; margin-top:12px; text-align:center; min-height:22px;">Thông báo lỗi
+            sẽ hiển
+            thị ở đây</p>
+    </div>
+</body>
+
+</html>

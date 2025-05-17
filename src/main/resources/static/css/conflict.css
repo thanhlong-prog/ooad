@@ -1,0 +1,74 @@
+.conflict-box {
+    max-width: 400px;
+    margin: 60px auto;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 36px 32px 28px 32px;
+}
+.conflict-box h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+}
+.conflict-box > div {
+    font-size: 1.08rem;
+    margin-bottom: 10px;
+}
+.conflict-box .conflict-info {
+    font-size: 1.05rem;
+    margin-bottom: 18px;
+}
+#conflict-title {
+    font-weight: 600;
+}
+#conflict-time, #conflict-location {
+    color: #555;
+    font-size: 0.98em;
+}
+.conflict-box .btn-conflict {
+    background: #fff;
+    color: #222;
+    border: 1px solid #cfd8dc;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s;
+}
+.conflict-box .btn-conflict:last-child {
+    background: #2979ff;
+    color: #fff;
+    border: none;
+}
+.conflict-box .btn-conflict:not(:last-child):hover {
+    background: #f0f4fa;
+    border: 1px solid #2979ff;
+}
+.conflict-box .btn-conflict:last-child:hover {
+    background: #1565c0;
+}
+.conflict-box .btn-group {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+.conflict-box .old-appt {
+    background: #fff;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px 12px 8px 12px;
+}
+.conflict-box .new-appt {
+    background: #f7fafd;
+    border-radius: 8px;
+    margin-bottom: 18px;
+    padding: 10px 12px 8px 12px;
+}
+.old-title, .old-time, .old-location {
+    color: #222;
+}
+.new-title, .new-time, .new-location {
+    color: #2979ff;
+    font-weight: 600;
+}

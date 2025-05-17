@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Group Meeting?</title>
+    <link rel="stylesheet" href="/css/confirm-join.css">
+</head>
+<body>
+    <div class="confirm-join-box">
+        <h2>Join Group Meeting?</h2>
+        <div>There is already a group meeting with the same name and time.</div>
+        <div class="group-info">
+            <b>Group meeting:</b><br>
+            <span id="group-title">Design Review</span><br>
+            <span id="group-time">2025-05-23 09:00 - 10:00</span><br>
+            <span id="group-location">Conference Room</span><br>
+            <span id="group-participants">Participants: Alice, Bob</span>
+        </div>
+        <div class="btn-group">
+            <button class="btn-another" onclick="window.history.back()">Create New Appointment</button>
+            <button class="btn-replace">Join Group Meeting</button>
+        </div>
+    </div>
+    <script src="/js/confirm-join.js"></script>
+</body>
+</html>

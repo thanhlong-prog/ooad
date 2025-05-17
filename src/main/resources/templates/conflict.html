@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conflict Warning</title>
+    <link rel="stylesheet" href="/css/conflict.css">
+</head>
+<body>
+    <div class="conflict-box">
+        <h2>Conflict Warning</h2>
+        <div>You already have an appointment at this time.</div>
+        <div class="conflict-info old-appt">
+            <b>Existing appointment:</b><br>
+            <span id="conflict-title" class="old-title">Design Review</span><br>
+            <span id="conflict-time" class="old-time">2025-05-23 09:00 - 10:00</span><br>
+            <span id="conflict-location" class="old-location">Conference Room</span>
+        </div>
+        <div class="conflict-info new-appt">
+            <b>New appointment you want to add:</b><br>
+            <span id="new-title" class="new-title">Project Meeting</span><br>
+            <span id="new-time" class="new-time">2025-05-23 09:00 - 10:00</span><br>
+            <span id="new-location" class="new-location">Room 101</span>
+        </div>
+        <div class="btn-group">
+            <button class="btn-conflict" onclick="window.history.back()">Choose Another Time</button>
+            <button class="btn-conflict">Replace Existing</button>
+        </div>
+    </div>
+    <script src="/js/conflict.js"></script>
+</body>
+</html>
