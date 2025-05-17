@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join Group Meeting?</title>
-    <link rel="stylesheet" href="/css/confirm-join.css">
+    <link rel="stylesheet" th:href="@{/css/confirm-join.css}">
 </head>
 <body>
     <div class="confirm-join-box">
@@ -22,6 +22,6 @@
             <button class="btn-replace">Join Group Meeting</button>
         </div>
     </div>
-    <script src="/js/confirm-join.js"></script>
+    <script th:src="@{/js/confirm-join.js}"></script>
 </body>
 </html>
