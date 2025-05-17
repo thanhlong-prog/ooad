@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monthly Calendar</title>
-    <link rel="stylesheet" href="/css/list.css">
+    <link rel="stylesheet" th:href="@{/css/list.css}">
 </head>
 <body>
     <div class="calendar-container">
@@ -33,6 +33,6 @@
             <div id="modal-content" class="modal-content"></div>
         </div>
     </div>
-    <script src="/js/list.js"></script>
+    <script th:src="@{/js/list.js}"></script>
 </body>
 </html>
