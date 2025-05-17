@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Có xung đột thời gian với một cuộc hẹn khác!</h2>
+    <p>Cuộc hẹn hiện tại:</p>
+    <ul>
+        <li>Tên: Cuộc hẹn XYZ</li>
+        <li>Thời gian: 2025-05-17 10:00 - 11:00</li>
+        <li>Địa điểm: Văn phòng A</li>
+    </ul>
+    <form action="/appointments/replace" method="post">
+        <!-- Thông tin cuộc hẹn mới để thay thế -->
+        <input type="hidden" name="name" value="Cuộc hẹn mới" />
+        <input type="hidden" name="startTime" value="2025-05-17T10:00" />
+        <input type="hidden" name="endTime" value="2025-05-17T11:00" />
+        <input type="hidden" name="location" value="Phòng họp B" />
+        <button type="submit">Thay thế cuộc hẹn cũ</button>
+    </form>
+    <a href="/appointments/add">Chọn thời gian khác</a>
+</body>
+
+</html>

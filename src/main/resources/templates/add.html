@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Thêm cuộc hẹn</h2>
+    <form action="/appointments/add" method="post">
+        <label>Tên: <input type="text" name="name" /></label><br />
+        <label>Địa điểm: <input type="text" name="location" /></label><br />
+        <label>Bắt đầu: <input type="datetime-local" name="startTime" /></label><br />
+        <label>Kết thúc: <input type="datetime-local" name="endTime" /></label><br />
+        <button type="submit">Thêm</button>
+    </form>
+    <p style="color:red">[Thông báo lỗi sẽ hiển thị ở đây]</p>
+</body>
+
+</html>

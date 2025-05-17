@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Cuộc hẹn bạn nhập có vẻ là một cuộc họp nhóm</h3>
+    <p>Tên: Cuộc họp nhóm ABC</p>
+    <p>Thời gian: 2025-05-20T10:00 - 2025-05-20T11:00</p>
+    <p>Địa điểm: Phòng họp B</p>
+    <form action="/appointments/join-group" method="post">
+        <input type="hidden" name="groupId" value="1" />
+        <button type="submit">Tham gia họp nhóm</button>
+    </form>
+    <a href="/appointments/add">Hủy</a>
+</body>
+
+</html>
