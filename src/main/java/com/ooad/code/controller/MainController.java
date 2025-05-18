@@ -18,8 +18,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import com.ooad.code.dto.AppointmentDTO;
 import com.ooad.code.model.Appointment;
 import com.ooad.code.model.Reminder;
 import com.ooad.code.model.User;
@@ -37,23 +37,19 @@ public class MainController {
     @RequestMapping("/list")
     public String list(Model model) throws JsonProcessingException {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
         User consumer = null;
         if (principal instanceof UserDetails) {
-            String username = ((UserDetails) principal).getUsername();
-            consumer = userService.findByUsername(username);
+            consumer = userService.findByUsername(((UserDetails) principal).getUsername());
         }
-
         if (consumer == null) {
             return "redirect:/login";
         }
-
         model.addAttribute("user", consumer);
         List<Appointment> appointments = appointmentService.getAllAppointmentsForUser(consumer);
+        List<AppointmentDTO> dtos = appointments.stream().map(AppointmentDTO::new).toList();
         ObjectMapper mapper = new ObjectMapper();
         mapper.registerModule(new JavaTimeModule());
-        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-        String appointmentsJson = mapper.writeValueAsString(appointments);
+        String appointmentsJson = mapper.writeValueAsString(dtos);
         model.addAttribute("appointments", appointmentsJson);
         return "list";
     }
