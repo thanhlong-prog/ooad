@@ -87,6 +87,7 @@ public class MainController {
 
         if (!appointmentService.isValid(appointment)) {
             model.addAttribute("error", "Invalid appointment");
+            model.addAttribute("user", user);
             return "add";
         }
 
