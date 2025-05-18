@@ -7,6 +7,9 @@ import java.util.List;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -38,19 +41,24 @@ public class Appointment {
     @Column(name = "location")
     private String location;
     @Column(name = "start_time")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime startTime;
     @Column(name = "end_time")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     private LocalDateTime endTime;
 
     @ManyToOne
+    @JsonBackReference
     private User user;
 
     @OneToMany(mappedBy = "appointment", cascade = CascadeType.ALL)
+    @JsonBackReference
     private List<Reminder> reminders = new ArrayList<>();
 
     @ManyToMany
+    @JsonBackReference
     private List<User> participants;
 
     public boolean isValid() {

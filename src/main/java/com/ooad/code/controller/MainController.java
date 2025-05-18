@@ -16,6 +16,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.ooad.code.model.Appointment;
 import com.ooad.code.model.Reminder;
 import com.ooad.code.model.User;
@@ -31,7 +35,7 @@ public class MainController {
     private AppointmentService appointmentService;
 
     @RequestMapping("/list")
-    public String list(Model model) {
+    public String list(Model model) throws JsonProcessingException {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
         User consumer = null;
@@ -46,7 +50,11 @@ public class MainController {
 
         model.addAttribute("user", consumer);
         List<Appointment> appointments = appointmentService.getAllAppointmentsForUser(consumer);
-        model.addAttribute("appointments", appointments);
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.registerModule(new JavaTimeModule());
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        String appointmentsJson = mapper.writeValueAsString(appointments);
+        model.addAttribute("appointments", appointmentsJson);
         return "list";
     }
 

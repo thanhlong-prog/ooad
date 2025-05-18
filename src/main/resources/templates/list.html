@@ -13,7 +13,9 @@
 
 <body>
     <div th:insert="~{header :: header}"></div>
-    
+    <div id="appointment-data" th:data-appointments="${appointments}" style="display:none;">
+    </div>
+
     <div class="calendar-container">
         <div class="calendar-header">
             <button class="month-nav-btn" id="prev-month">&#8592;</button>
@@ -43,6 +45,8 @@
     <script src="/js/list.js">
     </script>
     <script src="/js/header.js"></script>
+
+
 </body>
 
 </html>
