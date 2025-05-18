@@ -1,27 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join Group Meeting?</title>
     <link rel="stylesheet" th:href="@{/css/confirm-join.css}">
+    <link th:href="@{https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="/css/header.css">
 </head>
+
 <body>
+    <div th:insert="~{header :: header}"></div>
     <div class="confirm-join-box">
         <h2>Join Group Meeting?</h2>
         <div>There is already a group meeting with the same name and time.</div>
         <div class="group-info">
             <b>Group meeting:</b><br>
-            <span id="group-title">Design Review</span><br>
-            <span id="group-time">2025-05-23 09:00 - 10:00</span><br>
-            <span id="group-location">Conference Room</span><br>
-            <span id="group-participants">Participants: Alice, Bob</span>
+            <div th:attr="data-groupid=${groupMeeting.id}"></div>
+            <span id="group-title" th:text="${groupMeeting.name}">Design Review</span><br>
+            <span th:text="'Boss room:'+${groupMeeting.user.username}">Design Review</span><br>
+            <span id="group-time" th:text="'Start time:'+${groupMeeting.startTime}">2025-05-23 09:00 - 10:00</span><br>
+            <span id="group-time2" th:text="'End time:'+${groupMeeting.endTime}">2025-05-23 09:00 - 10:00</span><br>
+            <span id="group-location" th:text="'Location:'+${groupMeeting.location}">Conference Room</span><br>
+            <span id="group-participants">
+                Participants:
+                <span th:if="${participant != null}">
+                    <span th:each="item : ${participant}">
+                        <span th:text="${item.username}">User Name</span>
+                    </span>
+                </span>
+                <span th:if="${participant == null || #lists.isEmpty(participant)}">No
+                    participants</span>
+            </span>
         </div>
+        <script>
+            const div = document.querySelector('div[data-groupid]');
+            const groupId = div.getAttribute('data-groupid');
+            console.log(groupId); 
+
+        </script>
         <div class="btn-group">
-            <button class="btn-another" onclick="window.history.back()">Create New Appointment</button>
-            <button class="btn-replace">Join Group Meeting</button>
+            <button class="btn-another" onclick="window.location.href='/user/addpage'">Create New Appointment</button>
+            <button class="btn-replace" onclick="window.location.href='/user/join_group?groupId=' + groupId">Join Group Meeting</button>
         </div>
     </div>
     <script th:src="@{/js/confirm-join.js}"></script>
+    <script src="/js/header.js"></script>
 </body>
+
 </html>

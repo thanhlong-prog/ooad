@@ -13,13 +13,16 @@
     <div class="container">
         <div class="login-box box">
             <h2 class="login-title title">Sign In</h2>
-            <form action="/add" method="post" class="login-form form">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+            <form th:action="@{/login}" method="post" class="login-form form">
+                <label for="username">Tên đăng nhập</label>
+                <input type="text" id="username" name="username" required>
+
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
+
                 <button type="submit" class="login-btn btn">Sign In</button>
             </form>
+
             <div class="signup-link">
                 Don’t have an account? <a th:href="@{/register}">Sign up</a>
             </div>

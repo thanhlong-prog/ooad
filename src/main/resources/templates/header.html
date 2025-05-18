@@ -14,9 +14,7 @@
                 </div>
                 <div class="dropdown-content menu-dropdown">
                     <ul class="dropdown-menu">
-                        <li><a th:href="@{/home}">Trang chủ</a></li>
-                        <li><a th:href="@{/calendar}">Lịch của tôi</a></li>
-                        <li><a th:href="@{/groups}">Nhóm</a></li>
+                        <li><a th:href="@{/user/list}">Lịch của tôi</a></li>
                         <li><a th:href="@{/logout}">Đăng xuất</a></li>
                     </ul>
                 </div>
@@ -34,11 +32,10 @@
                 </div>
                 <div class="profile" aria-label="Toggle profile options">
                     <i class='bx bx-user'></i>
-                    <span class="user-name">Shiro</span>
+                    <span class="user-name" th:text="${user.username}">Shiro</span>
                     <div class="dropdown-content profile-dropdown">
                         <ul class="dropdown-menu">
-                            <li><a th:href="@{/profile}">Hồ sơ</a></li>
-                            <li><a th:href="@{/settings}">Cài đặt</a></li>
+                            <li><a href="#">Hồ sơ</a></li>
                             <li><a th:href="@{/logout}">Đăng xuất</a></li>
                         </ul>
                     </div>
