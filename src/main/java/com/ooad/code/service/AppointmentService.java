@@ -76,12 +76,15 @@ public class AppointmentService {
     public int joinGroup(Long appointmentId, String username) {
         User user = userRepository.findByUsername(username);
         Optional<Appointment> optionalAppointment = appointmentRepository.findById(appointmentId);
-
         if (optionalAppointment.isPresent()) {
             Appointment appointment = optionalAppointment.get();
 
             if (appointment.getParticipants() == null) {
                 appointment.setParticipants(new ArrayList<>());
+            }
+
+            if (appointment.getParticipants().contains(user)) {
+                return 0;
             }
 
             boolean hasConflict = !appointmentRepository
